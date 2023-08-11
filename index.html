@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content = "width=device-scale=1.0">
+    <meta http-eqiv = "X-UA-Compatible" content = "ie=edge">
+    <title>Document</title>
+    <style>
+        main {
+            padding: 45px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 3fr;
+        } 
+
+        main .item {
+            border: 20px solid white;
+            padding: 25px;
+            border-radius: 35px;
+            background-color: rgb(216, 214, 214);
+            height: 200px;
+        }
+
+        .item h1 {
+            margin:0;
+            background-color:rgb(216, 214, 214);
+            padding:0;
+            position: relative; 
+        }
+
+        #item4 {
+            grid-column: 1/4;
+        }
+
+        .loan_button {
+            width:90%;
+            display:block;
+            border-radius: 5px;
+            height: 40px;
+            background-color: lightgreen;
+            border-color: lightgreen;
+        }
+
+        #bank_work_area {
+            display: inline-flex;
+            width:90%;
+            border-radius: 5px;
+            height: 40px;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        
+        #bank_button {
+            background-color: yellow;
+            border-color: yellow;
+        }
+
+        #work_button {
+            background-color: blue;
+            border-color: blue;
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    <main>
+        <div class="item">
+            <h1>Joe Banker</h1>
+
+            <div style="float:left;width:80%">
+                <p>Balance</p>
+            </div>
+            <div style="float:right;width:20%">
+                <p>0 Kr.</p>
+            </div>
+
+            <div id="outstanding_loan">
+                <div style="float:left;width:80%">
+                    <p>Outstanding Loan</p>
+                </div>
+                <div style="float:right;width:20%">
+                    <p>0 Kr.</p>
+                </div>
+            </div>
+            
+            <div id="loan_button_area">
+                <button class="loan_button" id="clc_loan_btn">Get a loan</button>
+            </div>
+        </div>
+      
+
+        <div class="item"><h1>Work</h1>
+            <div style="float:left;width:80%">
+                <p>Pay</p>
+            </div>
+            <div style="float:right;width:20%">
+                <p>0 Kr.</p>
+            </div>
+            
+            <div id="repay_loan_button_area">
+                <button class="loan_button">Repay Loan</button>
+            </div>
+            
+            <div id="bank_work_area">
+                <button id="bank_button">Bank</button>
+                <button id="work_button">Work</button>
+                <!--
+                <div style="float:left;width:40%">
+                    <button>Bank</button>
+                </div>
+                <div style="float:left;width:40%">
+                    <button>Work</button>
+                </div>
+                -->
+            </div>
+        </div>
+
+
+
+        <div class="item">
+            <h1>Laptops</h1>
+            <select name="laptops" id="laptops"></select>
+        </div>
+        <div class="item" id="item4"></div>
+      
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
