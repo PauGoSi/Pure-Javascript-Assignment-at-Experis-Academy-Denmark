@@ -1,7 +1,8 @@
 const laptopsElement = document.getElementById('laptops');
 const laptops = [];
 
-async function fetchComputerDetails() {
+//Fecthing the data from the API
+const fetchComputerDetails = async () => {
     const baseComputerApiUrl = "https://hickory-quilled-actress.glitch.me/computers"
     try {
         const response = await fetch(baseComputerApiUrl);
@@ -11,9 +12,11 @@ async function fetchComputerDetails() {
         console.log(error)
     }
 }
-
 //console.log(fetchComputerDetails()); //Output: Promise { <pending> }
 
+
+//fetching the data from the API and storing it in the laptops array
+//displaying the data in the dropdown
 const displayOption = async () => {
     const laptops = await fetchComputerDetails();
     for (const laptop of laptops) {
