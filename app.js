@@ -1,5 +1,8 @@
 const laptopsElement = document.getElementById('laptops');
 const laptopDecriptionElement = document.getElementById('laptop_decription');
+const laptopTitleElement = document.getElementById('laptop_title');
+const laptopSpecsElement = document.getElementById('laptop_specs');
+const laptopPriceElement = document.getElementById('laptop_price');
 
 
 
@@ -38,12 +41,20 @@ const displayComputerData  = async () => {
 
     //Displaying the first laptop's description
     laptopDecriptionElement.innerText = laptops[0].description;
-
+    //Display the first laptop's title
+    laptopTitleElement.innerText = laptops[0].title;
+    //Displaying the first laptop's specs
+    laptopSpecsElement.innerText = laptops[0].specs;
+    //Displaying the first laptop's price
+    laptopPriceElement.innerText = laptops[0].price;
     
-    //Displaying the description of the laptop the user has selected
+    //Displaying the "description", the "title", the "specs" and the "price" of the laptop the user has selected
     const handleLaptopChange = e => {
         const seledtedLaptop = laptops[e.target.selectedIndex];
         laptopDecriptionElement.innerText = seledtedLaptop.description;
+        laptopTitleElement.innerText = seledtedLaptop.title;
+        laptopSpecsElement.innerText = seledtedLaptop.specs;
+        laptopPriceElement.innerText = seledtedLaptop.price;
     }
     laptopsElement.addEventListener('change', handleLaptopChange);
 
@@ -59,7 +70,7 @@ const displayComputerData  = async () => {
           })
           .catch((error) => console.error(error));
 
-
+          
     //Displaying the laptop's image based on the laptop the user has selected 
     const fetchImage = async () => {
         const seledtedLaptop = laptops[laptopsElement.selectedIndex];

@@ -7,7 +7,7 @@
     <title>Document</title>
     <style>
         main {
-            padding: 45px;
+            padding: 65px;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: 3fr;
@@ -18,7 +18,7 @@
             padding: 25px;
             border-radius: 35px;
             background-color: rgb(216, 214, 214);
-            height: 200px;
+            height: 250px;
         }
 
         .item h1 {
@@ -61,6 +61,28 @@
             color: white;
         }
         
+        #item4 {
+            box-sizing:content-box;
+        }
+
+        /* Create three equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 31.25%;
+            padding: 10.5px;
+            
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: inline-flex;
+            clear: both;
+        }
+
+        #buy_now_button {
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
@@ -122,15 +144,24 @@
             <h1>Laptops</h1>
             <div><select id="laptops"></select></div>
             <div><h3>Features</h3></div>
-            <div><span id="laptop_decription"></span></div>
+            <div><p id="laptop_decription"></p></div>
         </div>
+        
         <div class="item" id="item4">
-            <div id="image-container">
-                <img id="laptop_image" height="177px" width="248px" alt="The image is not available for the selected laptop">
-                <span id="laptops_title"></span>
+            <div class="row">
+                <div class="column">
+                    <img id="laptop_image" height="212.4" width="297.6" alt="The image is not available for the selected laptop">
+                </div>
+                <div class="column">
+                    <div><h1 id="laptop_title"></h1></div>
+                    <div><p id="laptop_specs"></p></div>
+                </div>
+                <div class="column">
+                    <div><h1 id="laptop_price"></h1></div>
+                    <div id="buy_now_button"><button><h3>Buy Now</h3></button></div>
+                </div>
             </div>
         </div>
-      
     </main>
     <script src="app.js"></script>
 </body>
