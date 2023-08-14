@@ -9,7 +9,7 @@ const laptopPriceElement = document.getElementById('laptop_price');
 const apiComputerUrl = "https://hickory-quilled-actress.glitch.me/computers"
 
 //Defining a function for fecthing the data from the API and returning it as a promise
-const fetchApi = async (baseComputerApiUrl) => {
+const getComputerApi = async (baseComputerApiUrl) => {
     //Creating an empty array to store the data
     const laptops = [];
     try {
@@ -22,7 +22,7 @@ const fetchApi = async (baseComputerApiUrl) => {
 }
 //console.log(fetchApi(apiComputerUrl)); //Output: Promise { <pending> }
 
-async function fetchImageApi(baseImageApiUrl) {
+async function getImageApi(baseImageApiUrl) {
     fetch(baseImageApiUrl)
           .then((response) => response.blob())
           .then((blob) => {
@@ -36,10 +36,10 @@ async function fetchImageApi(baseImageApiUrl) {
 
 //Fetching the data from the API and storing it in the laptops array
 //Displaying the data in the dropdown
-const displayComputerData  = async () => {
+const getComputerData  = async () => {
 
     //Calling the fetchApi function
-    const laptops = await fetchApi(apiComputerUrl);
+    const laptops = await getComputerApi(apiComputerUrl);
 
     //Looping through the array and creating an option for each laptop
     for (const laptop of laptops) {
@@ -58,7 +58,7 @@ const displayComputerData  = async () => {
     //Displaying the first laptop's price
     laptopPriceElement.innerText = laptops[0].price;
     //Displaying the first laptop's image
-    await fetchImageApi("https://hickory-quilled-actress.glitch.me/assets/images/1.png");
+    await getImageApi("https://hickory-quilled-actress.glitch.me/assets/images/1.png");
     
     //Displaying the "description", the "title", the "specs", the "price" and 
     //the image of the laptop the user has selected
@@ -70,8 +70,9 @@ const displayComputerData  = async () => {
         laptopPriceElement.innerText = seledtedLaptop.price;
 
         //Fetching the image of the laptop the user has selected
-        await fetchImageApi("https://hickory-quilled-actress.glitch.me/" + seledtedLaptop.image);
+        await getImageApi("https://hickory-quilled-actress.glitch.me/" + seledtedLaptop.image);
     }
     laptopsElement.addEventListener('change', handleLaptopChange);
 };
-displayComputerData(); 
+getComputerData(); 
+
