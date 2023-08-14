@@ -83,6 +83,15 @@
         #buy_now_button {
             justify-content: center;
         }
+/*
+        #outstanding_loan {
+            display: none;
+        }
+
+        #loan_amount {
+            display: none;
+        }
+        */
     </style>
 </head>
 <body>
@@ -90,43 +99,33 @@
         <div class="item">
             <h1>Joe Banker</h1>
 
-            <div style="float:left;width:80%">
-                <p>Balance</p>
-            </div>
-            <div style="float:right;width:20%">
-                <p>0 Kr.</p>
-            </div>
 
-            <div id="outstanding_loan">
-                <div style="float:left;width:80%">
-                    <p>Outstanding Loan</p>
-                </div>
-                <div style="float:right;width:20%">
-                    <p>0 Kr.</p>
-                </div>
-            </div>
+                <p>Balance</p>
+                <input type="text" id="balance_amount" value="0" width="75%" readonly/>
+
+
+                <p id="outstanding_loan">Outstanding Loan</p>
+                <input type="text" id="loan_amount" value="0" width="75%" readonly/>
             
             <div id="loan_button_area">
-                <button class="loan_button" id="clc_loan_btn">Get a loan</button>
+                <button class="loan_button" id="apply_a_loan">Get a loan</button>
             </div>
         </div>
       
 
         <div class="item"><h1>Work</h1>
-            <div style="float:left;width:80%">
+            <div id="salery_area">
                 <p>Pay</p>
-            </div>
-            <div style="float:right;width:20%">
-                <p>0 Kr.</p>
+                <input type="text" id="salery_amount" value="0" width="75%" readonly/>
             </div>
             
             <div id="repay_loan_button_area">
-                <button class="loan_button">Repay Loan</button>
+                <button class="loan_button" id="repay_a_loan">Repay Loan</button>
             </div>
             
             <div id="bank_work_area">
                 <button id="bank_button">Bank</button>
-                <button id="work_button">Work</button>
+                <button type="button" id="work_button">Work</button>
                 <!--
                 <div style="float:left;width:40%">
                     <button>Bank</button>
@@ -158,7 +157,7 @@
                 </div>
                 <div class="column">
                     <div><h1 id="laptop_price"></h1></div>
-                    <div id="buy_now_button"><button><h3>Buy Now</h3></button></div>
+                    <div id="buy_now_button"><button id="buy_button"><h3>Buy Now</h3></button></div>
                 </div>
             </div>
         </div>
