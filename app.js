@@ -1,10 +1,9 @@
+//Declearing the DOM elements
 const laptopsElement = document.getElementById('laptops');
 const laptopDecriptionElement = document.getElementById('laptop_decription');
 const laptopTitleElement = document.getElementById('laptop_title');
 const laptopSpecsElement = document.getElementById('laptop_specs');
 const laptopPriceElement = document.getElementById('laptop_price');
-
-
 
 //Declearing the API URL
 const apiComputerUrl = "https://hickory-quilled-actress.glitch.me/computers"
@@ -23,9 +22,20 @@ const fetchApi = async (baseComputerApiUrl) => {
 }
 //console.log(fetchApi(apiComputerUrl)); //Output: Promise { <pending> }
 
+async function fetchImageApi(baseImageApiUrl) {
+    fetch(baseImageApiUrl)
+          .then((response) => response.blob())
+          .then((blob) => {
+            const imageUrl = URL.createObjectURL(blob);
+            const imageElement = document.getElementById("laptop_image")
+            imageElement.src = imageUrl;
+            imageElement.appendChild(imageElement);
+          })
+          .catch((error) => console.log(error));
+}
 
-//fetching the data from the API and storing it in the laptops array
-//displaying the data in the dropdown
+//Fetching the data from the API and storing it in the laptops array
+//Displaying the data in the dropdown
 const displayComputerData  = async () => {
 
     //Calling the fetchApi function
@@ -47,46 +57,21 @@ const displayComputerData  = async () => {
     laptopSpecsElement.innerText = laptops[0].specs;
     //Displaying the first laptop's price
     laptopPriceElement.innerText = laptops[0].price;
+    //Displaying the first laptop's image
+    await fetchImageApi("https://hickory-quilled-actress.glitch.me/assets/images/1.png");
     
-    //Displaying the "description", the "title", the "specs" and the "price" of the laptop the user has selected
-    const handleLaptopChange = e => {
+    //Displaying the "description", the "title", the "specs", the "price" and 
+    //the image of the laptop the user has selected
+    const handleLaptopChange = async e => {
         const seledtedLaptop = laptops[e.target.selectedIndex];
         laptopDecriptionElement.innerText = seledtedLaptop.description;
         laptopTitleElement.innerText = seledtedLaptop.title;
         laptopSpecsElement.innerText = seledtedLaptop.specs;
         laptopPriceElement.innerText = seledtedLaptop.price;
+
+        //Fetching the image of the laptop the user has selected
+        await fetchImageApi("https://hickory-quilled-actress.glitch.me/" + seledtedLaptop.image);
     }
     laptopsElement.addEventListener('change', handleLaptopChange);
-
-
-    //Displaying the first laptop's image
-    fetch("https://hickory-quilled-actress.glitch.me/assets/images/1.png")
-          .then((response) => response.blob())
-          .then((blob) => {
-            const imageUrl = URL.createObjectURL(blob);
-            const imageElement = document.getElementById("laptop_image")
-            imageElement.src = imageUrl;
-            imageElement.appendChild(imageElement);
-          })
-          .catch((error) => console.error(error));
-
-          
-    //Displaying the laptop's image based on the laptop the user has selected 
-    const fetchImage = async () => {
-        const seledtedLaptop = laptops[laptopsElement.selectedIndex];
-        fetch("https://hickory-quilled-actress.glitch.me/assets/images/" + seledtedLaptop.id + ".png")
-            .then((response) => response.blob())
-            .then((blob) => {
-            const imageUrl = URL.createObjectURL(blob);
-            const imageElement = document.getElementById("laptop_image")
-            imageElement.src = imageUrl;
-            imageElement.appendChild(imageElement);
-            })
-            .catch((error) => console.error(error));
-    }
-    laptopsElement.addEventListener('change', fetchImage);
-
-
-    
 };
 displayComputerData(); 
