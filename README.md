@@ -53,7 +53,7 @@ npm install
 ### 4️⃣ Start the local mock API
 Run this inside your project folder:
 ```bash
-npx json-server --watch db.json --port 3001
+json-server --watch db.json --port 3001 --static .
 ```
 Then open your browser and check:
 👉 http://localhost:3001/computers
