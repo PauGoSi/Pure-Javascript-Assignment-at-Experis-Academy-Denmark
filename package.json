@@ -1,0 +1,24 @@
+{
+  "name": "pure-javascript-assignment-at-experis-academy-denmark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "api": "json-server --watch db.json --port 3001 --static ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PauGoSi/Pure-Javascript-Assignment-at-Experis-Academy-Denmark.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PauGoSi/Pure-Javascript-Assignment-at-Experis-Academy-Denmark/issues"
+  },
+  "homepage": "https://github.com/PauGoSi/Pure-Javascript-Assignment-at-Experis-Academy-Denmark#readme",
+  "devDependencies": {
+    "json-server": "^1.0.0-beta.3"
+  }
+}
